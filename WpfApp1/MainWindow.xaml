@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Name="LeftPanel" Width="100" Background="BurlyWood">
+            <Label>Label 1</Label>
+            <Label>Label 2</Label>
+            <Label>Label 3</Label>
+            <Button Margin="3" Click="Me_Click">클릭</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Button Margin="3" Click="Button_Click">Visibility</Button>
+            <Button Margin="3" Click="Button_Click_IsVisible">IsVisible</Button>
+            
+            <Button Margin="3" Click="Button_Click_Opacity">Opacity</Button>
+            <!-- 불투명도는 0~1 사이 값을 통해 투명도를 나타냄
+                 0은 완전 투명, 1은 완전 불투명
+            -->
+
+            <Button Margin="3" Click="Button_Click_IsHitTestVisible">IsHitTestVisible</Button>
+            <!-- IsHitTestVisible:기본값 True
+                 True이면 마우스 이벤트에 대한 응답
+                 False이면 마우스 동작 무시됨 (클릭 안됨, ..)
+            -->
+
+            <Button Margin="3" Click="Button_Click_InEnabled">InEnabled</Button>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
