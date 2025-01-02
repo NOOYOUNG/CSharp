@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <!-- 
+        Trigger, MultiTrigger, EventTrigger, DataTrigger, MultiDataTrigger
+    -->
+
+    <Window.Resources>
+        <Style TargetType="{x:Type ProgressBar}">
+            <Setter Property="Foreground" Value="Aqua"/>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding TheValue}" Value="30">
+                    <Setter Property="Foreground" Value="Blue"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding TheValue}" Value="60">
+                    <Setter Property="Foreground" Value="Green"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding TheValue}" Value="90">
+                    <Setter Property="Foreground" Value="Yellow"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding TheValue}" Value="100">
+                    <Setter Property="Foreground" Value="Red"/>
+                </DataTrigger>
+
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Slider x:Name="slider" Margin="5" Minimum="0" Maximum="100"
+                Value="{Binding TheValue}"/>
+        <ProgressBar Grid.Row="1" Value="{Binding TheValue}"/>
+    </Grid>
+</Window>
